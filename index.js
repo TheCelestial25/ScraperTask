@@ -1,3 +1,13 @@
+'use strict';
+const saveInDB = require('./server.js');
+const config = require('./config.js');
+
+// YouTubeAPI requirements
+const {google} = require('googleapis');
+const path = require('path');
+const {authenticate} = require('@google-cloud/local-auth');
+const youtube = google.youtube('v3');
+
 async function runServer() {
 	// Google oauth
 	const auth = await authenticate({
